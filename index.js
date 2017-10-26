@@ -9,7 +9,10 @@ const chalk = require('chalk');
 const yargs = require('yargs')
 const help = require('./helpCommand');
 const versionCommand = require('./versionCommand');
+const update = require('./update');
+const config = require('./config/setconfigpath')
 require('console.table');
+require('./utils/data')();
 cliRun();
 
 function cliRun() {
@@ -25,6 +28,14 @@ function cliRun() {
             help: {
                 alias: 'h',
                 description: 'show command description'
+            },
+            update: {
+                alias: 'u',
+                description: 'config module'
+            },
+            configpath: {
+                align: 'c',
+                description: 'set config path'
             }
         }).argv;
 
@@ -39,7 +50,15 @@ function cliRun() {
         help();
         return;
     }
+    if (argv.update) {
+        update();
+        return;
+    }
+    if (argv.configpath) {
+        config(argv.configpath);
+        return;
+    }
 
-
+    log.ERROR("invalid command, please try deep -h");
 
 }

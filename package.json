@@ -1,6 +1,6 @@
 {
   "name": "deeponion",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,9 @@
     "yargs": "^4.2.0",
     "yuan-console": "^0.1.2"
   },
-  "author": "",
+  "bin": {
+    "deep": "bin/cli.js"
+  },
+  "author": "sanyinchen",
   "license": "ISC"
 }
